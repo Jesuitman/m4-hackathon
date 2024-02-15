@@ -68,3 +68,18 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+# Frustrating Interface Ideas
+
+- [ ] **Moving Buttons**: Buttons that move when clicked, jumping around the screen or switching positions unexpectedly.
+- [ ] **Randomized Layout**: Unpredictable layout changes, with elements shifting around or changing size randomly.
+- [ ] **Hidden Controls**: Important controls hidden in obscure places or behind layers of other elements.
+- [ ] **Unpredictable Responses**: Interface responds unpredictably to user input, with actions varying or doing nothing at all.
+- [ ] **Invasive Popups**: Flood the screen with popups or alerts that users must dismiss before continuing.
+- [ ] **Color Distortion**: Introduce color distortion effects, making it hard to read text or distinguish between elements.
+- [ ] **Unintuitive Controls**: Use non-standard controls or interactions that users wouldn't expect.
+- [ ] **Time Pressure**: Add time limits to actions or tasks, forcing users to rush and increasing the likelihood of mistakes.
+- [ ] **Aggressive Animations**: Use flashy or distracting animations that make it hard for users to focus.
+- [ ] **Intermittent Connectivity**: Simulate connectivity issues, causing delays or errors when users try to interact.
+
