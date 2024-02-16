@@ -1,5 +1,6 @@
 import { useState } from "react";
 import './Form.css'
+import Button from "../Button/Button.js";
 
 function Form({ fetchReviews }) {
     const [city, setCity] = useState("")
@@ -41,7 +42,7 @@ function Form({ fetchReviews }) {
                 onChange={event => setRestaurantName(event.target.value)}
             />
 
-            <button type="submit">SUBMIT</button>
+            <Button type="submit" />
         </form>
     )
 }
