@@ -8,3 +8,12 @@ form {
     border: 2px solid black;
     font-size: 18px;
   }
+
+  input:hover{
+    transform: scale(1.2);
+  }
+
+  input {
+    font-size: 36px;
+    transition: font-size 3s ease-out;
+  }
