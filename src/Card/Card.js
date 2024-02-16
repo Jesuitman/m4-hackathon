@@ -1,6 +1,6 @@
 import "./Card.css"
 
-function Card({title,description,id, deleteIdea}){
+function Card({title, description, id, deleteIdea}){
     return(
         <div className="card">
             <h3>{title}</h3>

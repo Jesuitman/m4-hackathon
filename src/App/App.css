@@ -32,7 +32,25 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
+
+.card-delaware {
+
+  border: 2px solid black;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  font-family: fantasy;
+}
+
+/* 
+.valid-state-text {
+  border: 2px solid black;
+  padding: 20px;
+  font-size: 24px;
+  text-align: center;
+} */
