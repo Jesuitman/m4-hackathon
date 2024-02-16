@@ -1,5 +1,6 @@
 import { useState } from "react";
 import './Form.css'
+import Button from "../Button/Button.js";
 
 const states = [
     "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado",
@@ -63,8 +64,12 @@ function Form({ fetchReviews, newState }) {
                 onChange={event => setRestaurantName(event.target.value)}
             />
 
-            <button type="submit">SUBMIT</button>
+
+        
             <button type="submit" onClick={newState}>Add a New State</button>
+
+            <Button type="submit" />
+
         </form>
     )
 }
