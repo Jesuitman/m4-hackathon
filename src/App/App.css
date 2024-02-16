@@ -56,6 +56,15 @@
   max-height: 50%;
 }
 
+.card-heat{
+  border: 2px solid black;
+  background-color: rgb(255, 41, 159);
+  padding: 10px;
+  font-size: 30px;
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin: 400px;
+}
 /* 
 .new-state-background {
   background-image: url('https://static.wikia.nocookie.net/clownopedia/images/2/26/Uhoo1-1-.jpg');
