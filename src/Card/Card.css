@@ -3,3 +3,12 @@
     border: 3px solid black;
     padding: 10px;
   }
+
+  .card:hover{
+    transform: scale(1.2);
+  }
+
+  .card {
+    font-size: 36px;
+    transition: font-size 3s ease-out;
+  }
