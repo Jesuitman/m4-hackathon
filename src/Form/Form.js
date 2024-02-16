@@ -5,6 +5,7 @@ import cat2 from "../Media/cat2.m4a"
 import cat3 from "../Media/cat3.m4a"
 import cat4 from "../Media/cat4.m4a"
 import cat5 from "../Media/cat5.m4a"
+import Button from "../Button/Button.js";
 
 
 function Form({ fetchReviews }) {
@@ -85,7 +86,7 @@ function Form({ fetchReviews }) {
                 onClick={playSongsSequentially} // Play song when clicked
             />
 
-            <button type="submit">SUBMIT</button>
+            <Button type="submit" />
         </form>
     )
 }
