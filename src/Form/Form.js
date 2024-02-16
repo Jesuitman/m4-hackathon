@@ -8,10 +8,12 @@ import cat5 from "../Media/cat5.m4a"
 import Button from "../Button/Button.js";
 
 
-function Form({ fetchReviews, newState, setFontSize, fontSize, colors }) {
+
+function Form({ fetchReviews, newState, setFontSize, fontSize, colors, graduallyIncreaseVolume }) {
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [restaurantName, setRestaurantName] = useState("");
+
 
   const states = [
     "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado",
@@ -33,21 +35,26 @@ function Form({ fetchReviews, newState, setFontSize, fontSize, colors }) {
     return states[randomIndex];
   }
 
+    // Function to play songs sequentially
+    function playSongsSequentially(audio) {
+        audioFiles.forEach((audioFile, index) => {
+            setTimeout(() => {
+                const audioElement = new Audio(audioFile);
+                audioElement.play();
+                if (audio) {
+                    graduallyIncreaseVolume(audioElement);
+                }
+            }, (index + 1) * 2000); // Start each song 2 seconds after the previous one
+        });
+    }
+
   function handleStateClick() {
     const randomState = getRandomState();
     setState(randomState);
     playSongsSequentially();
   }
 
-  // Function to play songs sequentially
-  function playSongsSequentially() {
-    audioFiles.forEach((audioFile, index) => {
-      setTimeout(() => {
-        const audio = new Audio(audioFile);
-        audio.play();
-      }, (index + 1) * 2000); // Start each song 2 seconds after the previous one
-    });
-  }
+
 
   function submitForm(event) {
     event.preventDefault()

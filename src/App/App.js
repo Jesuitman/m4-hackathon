@@ -1,8 +1,10 @@
+
 import { useEffect, useState } from "react";
 import Reviews from "../Reviews/Reviews"
 import "./App.css"
 import Form from "../Form/Form";
-
+import frog from "../Media/Frog.mp3"
+import happyPotter from "../Media/HappyPotter.mp3"
 
 function App() {
 
@@ -16,6 +18,35 @@ function App() {
     fieldColor: '#FFFFFF',
     buttonColor: 'FFFFFF'
   });
+
+  function graduallyIncreaseVolume(audio) {
+    let currentVolume = 0; 
+    const maxVolume = 1; 
+    const volumeIncrement = 0.01; 
+    const intervalTime = 5000;
+  
+    audio.volume = currentVolume; 
+  
+    const increaseVolume = () => {
+      if (currentVolume < maxVolume) {
+        currentVolume += volumeIncrement;
+        audio.volume = currentVolume;
+      } else {
+        clearInterval(interval); 
+      }
+    };
+  
+    const interval = setInterval(increaseVolume, intervalTime);
+  }
+
+  useEffect(() => {
+    const audio1 = new Audio(frog);
+    const audio2 = new Audio(happyPotter)
+    audio1.loop = true;
+    audio2.play()
+    audio1.play();
+    graduallyIncreaseVolume(audio1)
+}, []);
 
   function newState() {
     setShowMessage(true);
@@ -51,6 +82,10 @@ function App() {
     document.body.style.backgroundImage = "url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f2006cc3-9fe6-4105-9880-7563a1e5dc80/dfbuup9-4aaef9c0-06bd-4b09-86d3-9f89c5463e12.png/v1/fill/w_962,h_541/gangster_spongebob_vs_gangster_bugs_bunny__by_fightingiscool_dfbuup9-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTQxIiwicGF0aCI6IlwvZlwvZjIwMDZjYzMtOWZlNi00MTA1LTk4ODAtNzU2M2ExZTVkYzgwXC9kZmJ1dXA5LTRhYWVmOWMwLTA2YmQtNGIwOS04NmQzLTlmODljNTQ2M2UxMi5wbmciLCJ3aWR0aCI6Ijw9OTYyIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.ie6rtFKkJHhvP6cSnTSe08GJcSTRH5Am8Lr9VX4DDEA')";
     document.body.style.backgroundRepeat = "repeat";
   }
+
+
+    const [reviews, setReviews] = useState([])
+    const [showMessage, setShowMessage] = useState(false);
 
   function cardThreeFunction() {
     setCardThree(true);
