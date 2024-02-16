@@ -4,3 +4,12 @@
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
   }
+
+  .review, h2, h3, p {
+    font-size: 36px;
+    transition: font-size 3s ease-out;
+  }
+
+  .review:hover {
+    transform: scale(1.2);
+  }

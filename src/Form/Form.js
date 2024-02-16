@@ -8,10 +8,10 @@ import cat5 from "../Media/cat5.m4a"
 import Button from "../Button/Button.js";
 
 
-function Form({ fetchReviews, newState, colors }) {
-  const [city, setCity] = useState("")
-  const [state, setState] = useState("")
-  const [restaurantName, setRestaurantName] = useState("")
+function Form({ fetchReviews, newState, setFontSize, fontSize, colors }) {
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [restaurantName, setRestaurantName] = useState("");
 
   const states = [
     "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado",
@@ -64,9 +64,16 @@ function Form({ fetchReviews, newState, colors }) {
         placeholder='City'
         name='city'
         value={city}
+        style={{
+          fontSize: `${fontSize}px`,
+          backgroundColor: colors.fieldColorBG1,
+          color: colors.fieldColorBG2
+        }} // Change colors every 5 seconds
         onChange={event => setCity(event.target.value)}
-        onClick={playSongsSequentially} // Play song when clicked
-        style={{ backgroundColor: colors.fieldColorBG1, color: colors.fieldColorBG2 }} // Change colors every 5 seconds
+        onClick={() => {
+          setFontSize(fontSize + 20);
+          playSongsSequentially();
+        }} // Play song when clicked
       />
 
       <input
@@ -74,9 +81,16 @@ function Form({ fetchReviews, newState, colors }) {
         placeholder='State'
         name='state'
         value={state}
-        onClick={handleStateClick} // Changed to onClick event
+        style={{
+          fontSize: `${fontSize}px`,
+          backgroundColor: colors.fieldColorBG2,
+          color: colors.fieldColorBG3
+        }}
+        onClick={() => {
+          setFontSize(fontSize + 20);
+          handleStateClick();
+        }} // Changed to onClick event
         readOnly // Added to prevent manual typing
-        style={{ backgroundColor: colors.fieldColorBG2, color: colors.fieldColorBG3 }} // Change colors every 5 seconds
       />
 
       <input
@@ -84,19 +98,24 @@ function Form({ fetchReviews, newState, colors }) {
         placeholder='Restaurant Name'
         name='restaurantName'
         value={restaurantName}
+        style={{
+          fontSize: `${fontSize}px`,
+          backgroundColor: colors.fieldColorBG3,
+          color: colors.fieldColorBG1
+        }}
         onChange={event => setRestaurantName(event.target.value)}
-        onClick={playSongsSequentially} // Play song when clicked
-        style={{ backgroundColor: colors.fieldColorBG3, color: colors.fieldColorBG1 }} // Change colors every 5 seconds
+        onClick={() => {
+          setFontSize(fontSize + 20);
+          playSongsSequentially();
+        }} // Play song when clicked
       />
-
-
 
       <button
         type="submit"
         style={{ backgroundColor: colors.buttonColorSB1, color: colors.buttonColorSB2 }} // Change colors every 5 seconds
         onClick={newState}>Add a New State</button>
 
-      <Button colors={colors} type="submit" />
+      <Button type={"submit"} setFontSize={setFontSize} fontSize={fontSize} colors={colors} />
 
     </form>
   )
