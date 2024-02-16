@@ -1,0 +1,7 @@
+button {
+  font-size: 36px;
+}
+
+button:hover{
+  transform: scale(1.2);
+}
