@@ -1,10 +1,40 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Reviews from "../Reviews/Reviews"
 import "./App.css"
 import Form from "../Form/Form";
-
+import frog from "../Media/Frog.mp3"
+import happyPotter from "../Media/HappyPotter.mp3"
 
 function App(){
+
+  function graduallyIncreaseVolume(audio) {
+    let currentVolume = 0; 
+    const maxVolume = 1; 
+    const volumeIncrement = 0.01; 
+    const intervalTime = 5000;
+  
+    audio.volume = currentVolume; 
+  
+    const increaseVolume = () => {
+      if (currentVolume < maxVolume) {
+        currentVolume += volumeIncrement;
+        audio.volume = currentVolume;
+      } else {
+        clearInterval(interval); 
+      }
+    };
+  
+    const interval = setInterval(increaseVolume, intervalTime);
+  }
+
+  useEffect(() => {
+    const audio1 = new Audio(frog);
+    const audio2 = new Audio(happyPotter)
+    audio1.loop = true;
+    audio2.play()
+    audio1.play();
+    graduallyIncreaseVolume(audio1)
+}, []);
 
   function newState() {
     setShowMessage(true);
@@ -24,7 +54,7 @@ function App(){
     return(
         <main className='App'>
           <h1>IdeaBox</h1>
-          <Form fetchReviews={fetchReviews} newState={newState} />
+          <Form fetchReviews={fetchReviews} newState={newState} graduallyIncreaseVolume={graduallyIncreaseVolume} />
       {showMessage && (
         <div className="card-delaware">
           <h1 className="valid-state-text">Uh Oh Partner! Delaware is NOT a God Dang Valid State!!</h1>
