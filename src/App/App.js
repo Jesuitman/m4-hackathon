@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Reviews from "../Reviews/Reviews"
 import "./App.css"
 import Form from "../Form/Form";
@@ -12,6 +12,32 @@ function App(){
 
     const [reviews, setReviews] = useState([])
     const [showMessage, setShowMessage] = useState(false);
+    const [colors, setColors] = useState({
+      fieldColor: '#FFFFFF',
+      buttonColor: 'FFFFFF'
+    });
+
+    const getRandoColor = () => {
+      return "#" + Math.floor(Math.random()*16777215).toString(16);
+    };
+
+    const updateColors = () => {
+      setColors({
+        fieldColorBG1: getRandoColor(),
+        fieldColorBG2: getRandoColor(),
+        fieldColorBG3: getRandoColor(),
+        buttonColorSB1: getRandoColor(),
+        buttonColorSB2: getRandoColor()
+      });
+    };
+
+    useEffect(() => {
+      const interval = setInterval(() => {
+        updateColors();
+      }, 5000);
+
+      return () => clearInterval(interval);
+    }, []);
 
     function fetchReviews(city, state, restaurantName) {
         // Here you will perform the fetch call to your API
@@ -24,7 +50,7 @@ function App(){
     return(
         <main className='App'>
           <h1>IdeaBox</h1>
-          <Form fetchReviews={fetchReviews} newState={newState} />
+          <Form fetchReviews={fetchReviews} newState={newState} colors={colors}/>
       {showMessage && (
         <div className="card-delaware">
           <h1 className="valid-state-text">Uh Oh Partner! Delaware is NOT a God Dang Valid State!!</h1>
