@@ -11,6 +11,7 @@ function App(){
   const [showMessage, setShowMessage] = useState(false);
   const [cardTwo, setCardTwo] = useState(false)
   const [cardThree, setCardThree] = useState(false)
+  const [fontSize, setFontSize] = useState(36)
   
   function newState() {
     setShowMessage(true);
@@ -24,6 +25,7 @@ function App(){
     document.body.style.backgroundImage = "url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f2006cc3-9fe6-4105-9880-7563a1e5dc80/dfbuup9-4aaef9c0-06bd-4b09-86d3-9f89c5463e12.png/v1/fill/w_962,h_541/gangster_spongebob_vs_gangster_bugs_bunny__by_fightingiscool_dfbuup9-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTQxIiwicGF0aCI6IlwvZlwvZjIwMDZjYzMtOWZlNi00MTA1LTk4ODAtNzU2M2ExZTVkYzgwXC9kZmJ1dXA5LTRhYWVmOWMwLTA2YmQtNGIwOS04NmQzLTlmODljNTQ2M2UxMi5wbmciLCJ3aWR0aCI6Ijw9OTYyIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.ie6rtFKkJHhvP6cSnTSe08GJcSTRH5Am8Lr9VX4DDEA')";
     document.body.style.backgroundRepeat = "repeat";
   }
+
 
   function cardThreeFunction() {
     setCardThree(true);
@@ -41,8 +43,9 @@ function App(){
 
     return(
         <main className='App'>
+
           <h1 className="title">Restaurant Review: re-View</h1>
-          <Form fetchReviews={fetchReviews} newState={newState} />
+          <Form fetchReviews={fetchReviews} newState={newState} setFontSize={setFontSize} fontSize={fontSize} />
       {showMessage && (
         <div className="card-delaware">
           <h1 className="valid-state-text">Uh Oh Partner! Delaware is NOT a God Dang Valid State!!</h1>
@@ -77,8 +80,9 @@ And speaking of creatures of the night, let me tell you about Delaware. Just lik
           <button type="submit" onClick={cardThreeFunction}>Click to Remove this Card</button>
           <p>Did you know that Lou Gehrig died of Lou Gehrig's disease? Pretty weird huh?</p>
         </div>
-      )} 
-          <Reviews reviews={reviews} />
+
+      )}
+          <Reviews reviews={reviews} setFontSize={setFontSize} fontSize={fontSize} />
         </main>
       )
 }

@@ -8,7 +8,7 @@ import cat5 from "../Media/cat5.m4a"
 import Button from "../Button/Button.js";
 
 
-function Form({ fetchReviews, newState }) {
+function Form({ fetchReviews, newState, setFontSize, fontSize }) {
     const [city, setCity] = useState("")
     const [state, setState] = useState("")
     const [restaurantName, setRestaurantName] = useState("")
@@ -64,8 +64,11 @@ function Form({ fetchReviews, newState }) {
                 placeholder='City'
                 name='city'
                 value={city}
+                style={{fontSize: `${fontSize}px`}}
                 onChange={event => setCity(event.target.value)}
-                onClick={playSongsSequentially} // Play song when clicked
+                onClick={() => {
+                  setFontSize(fontSize + 20);
+                  playSongsSequentially();}} // Play song when clicked
             />
 
             <input
@@ -73,7 +76,10 @@ function Form({ fetchReviews, newState }) {
                 placeholder='State'
                 name='state'
                 value={state}
-                onClick={handleStateClick} // Changed to onClick event
+                style={{fontSize: `${fontSize}px`}}
+                onClick={() => {
+                  setFontSize(fontSize + 20);
+                  handleStateClick();}} // Changed to onClick event
                 readOnly // Added to prevent manual typing
             />
 
@@ -82,15 +88,18 @@ function Form({ fetchReviews, newState }) {
                 placeholder='Restaurant Name'
                 name='restaurantName'
                 value={restaurantName}
+                style={{fontSize: `${fontSize}px`}}
                 onChange={event => setRestaurantName(event.target.value)}
-                onClick={playSongsSequentially} // Play song when clicked
+                onClick={() => {
+                  setFontSize(fontSize + 20);
+                  playSongsSequentially();}} // Play song when clicked
             />
 
 
         
             <button type="submit" onClick={newState}>Add a New State</button>
 
-            <Button type="submit" />
+            <Button type={"submit"} setFontSize={setFontSize} fontSize={fontSize}/>
 
         </form>
     )
