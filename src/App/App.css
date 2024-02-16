@@ -16,11 +16,51 @@
 .card-delaware {
 
   border: 2px solid black;
+  background-color: antiquewhite;
   padding: 20px;
   font-size: 30px;
   text-align: center;
   font-family: fantasy;
+  margin: 100px
 }
+
+.card-two {
+  border: 2px solid black;
+  background-color: rgb(190, 190, 190);
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  margin: 600px;
+}
+
+.title {
+  background-color: darksalmon;
+  margin-left: 700px;
+  margin-right: 700px;
+  border-radius: 10px;
+}
+
+.card-bats {
+  border: 2px solid black;
+  background-color: rgb(38, 229, 236);
+  padding: 10px;
+  font-size: 30px;
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin: 400px;
+}
+
+.card-bats img {
+  max-width: 50%;
+  max-height: 50%;
+}
+
+/* 
+.new-state-background {
+  background-image: url('https://static.wikia.nocookie.net/clownopedia/images/2/26/Uhoo1-1-.jpg');
+  background-repeat: repeat;
+} */
 
 /* 
 .valid-state-text {
@@ -29,4 +69,3 @@
   font-size: 24px;
   text-align: center;
 } */
-
