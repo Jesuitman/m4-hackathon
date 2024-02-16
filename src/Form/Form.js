@@ -1,6 +1,19 @@
 import { useState } from "react";
 import './Form.css'
 
+const states = [
+    "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado",
+    "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho",
+    "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana",
+    "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota",
+    "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada",
+    "New Hampshire", "New Jersey", "New Mexico", "New York",
+    "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon",
+    "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota",
+    "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington",
+    "West Virginia", "Wisconsin", "Wyoming", "This isn't a state", "Are you frustrated yet?"
+];
+
 function Form({ fetchReviews }) {
     const [city, setCity] = useState("")
     const [state, setState] = useState("")
@@ -9,10 +22,18 @@ function Form({ fetchReviews }) {
     function submitForm(event) {
         event.preventDefault()
         fetchReviews(city, state, restaurantName);
-        // Clear input fields after submission
         setCity("");
-        setState("");
         setRestaurantName("");
+    }
+
+    function getRandomState() {
+        const randomIndex = Math.floor(Math.random() * states.length);
+        return states[randomIndex];
+    }
+
+    function handleStateClick() {
+        const randomState = getRandomState();
+        setState(randomState);
     }
 
     return (
@@ -30,7 +51,8 @@ function Form({ fetchReviews }) {
                 placeholder='State'
                 name='state'
                 value={state}
-                onChange={event => setState(event.target.value)}
+                onClick={handleStateClick} 
+                readOnly 
             />
 
             <input
