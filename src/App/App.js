@@ -9,7 +9,7 @@ function App(){
   function newState() {
     setShowMessage(true);
   }
-
+    const [fontSize, setFontSize] = useState(36);
     const [reviews, setReviews] = useState([])
     const [showMessage, setShowMessage] = useState(false);
 
@@ -24,7 +24,7 @@ function App(){
     return(
         <main className='App'>
           <h1>IdeaBox</h1>
-          <Form fetchReviews={fetchReviews} newState={newState} />
+          <Form fetchReviews={fetchReviews} newState={newState} setFontSize={setFontSize} fontSize={fontSize} />
       {showMessage && (
         <div className="card-delaware">
           <h1 className="valid-state-text">Uh Oh Partner! Delaware is NOT a God Dang Valid State!!</h1>
@@ -33,7 +33,7 @@ function App(){
           <h3>Idaho has been omitted from state consideration.</h3>
         </div>
       )}
-          <Reviews reviews={reviews} />
+          <Reviews reviews={reviews} setFontSize={setFontSize} fontSize={fontSize} />
         </main>
       )
 }
