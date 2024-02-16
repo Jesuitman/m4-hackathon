@@ -1,13 +1,14 @@
 import './Button.css'
-import { useState } from "react";
 
-const Button = ({type, setFontSize, fontSize}) => {
-  
+const Button = ({ type, setFontSize, fontSize, colors }) => {
 
   return (
-    <button type={type} style={{fontSize: `${fontSize}px`}} onClick={() => setFontSize(fontSize + 20)}>Button Text</button>
+    <button
+      type={type}
+      style={{ fontSize: `${fontSize}px`, backgroundColor: colors.buttonColorSB2, color: colors.buttonColorSB1 }}
+      onClick={() => setFontSize(fontSize + 20)}>Button Text
+    </button>
   );
-
 }
 
-export default Button
+export default Button;
