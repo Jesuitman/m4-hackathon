@@ -1,5 +1,7 @@
 button {
   font-size: 36px;
+  transition: font-size 3s ease-out;
+
 }
 
 button:hover{
