@@ -15,7 +15,7 @@ const states = [
     "West Virginia", "Wisconsin", "Wyoming", "This isn't a state", "Are you frustrated yet?"
 ];
 
-function Form({ fetchReviews }) {
+function Form({ fetchReviews, newState }) {
     const [city, setCity] = useState("")
     const [state, setState] = useState("")
     const [restaurantName, setRestaurantName] = useState("")
@@ -64,7 +64,12 @@ function Form({ fetchReviews }) {
                 onChange={event => setRestaurantName(event.target.value)}
             />
 
+
+        
+            <button type="submit" onClick={newState}>Add a New State</button>
+
             <Button type="submit" />
+
         </form>
     )
 }
