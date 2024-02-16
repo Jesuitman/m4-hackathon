@@ -10,6 +10,7 @@ function App() {
   const [showMessage, setShowMessage] = useState(false);
   const [cardTwo, setCardTwo] = useState(false);
   const [cardThree, setCardThree] = useState(false);
+  const [cardFour, setCardFour] = useState(false)
   const [fontSize, setFontSize] = useState(36);
   const [colors, setColors] = useState({
     fieldColor: '#FFFFFF',
@@ -57,6 +58,14 @@ function App() {
     document.body.style.backgroundImage = "url('https://upload.wikimedia.org/wikipedia/en/f/ff/Christopher_Moltisanti.jpg')";
     document.body.style.backgroundRepeat = "repeat";
   }
+
+  function cardFourFunction() {
+    setCardFour(true);
+    setCardThree(false);
+    document.body.style.backgroundImage = "url('https://thumbs.dreamstime.com/z/elderly-man-cowboy-hat-17204491.jpg?ct=jpeg')";
+    document.body.style.backgroundRepeat = "repeat";
+  }
+
   function fetchReviews(city, state, restaurantName) {
     // Here you will perform the fetch call to your API
     // Use city, state, and restaurantName to fetch reviews
@@ -106,12 +115,21 @@ function App() {
             <p>"Imagine a creature that navigates the world through the dark, using a remarkable ability to emit high-pitched sounds and listen for their echoes. This creature, known as a bat, possesses wings that are uniquely adapted for flight. However, unlike birds, bats have wings that are more akin to hands, with elongated fingers connected by a thin membrane of skin, resembling an umbrella when stretched out. This membrane, called a patagium, allows bats to gracefully maneuver through the air with impressive agility. Bats are primarily nocturnal, meaning they are most active during the night. They play a crucial role in ecosystems worldwide, often serving as pollinators for various plants and as natural pest controllers by consuming insects in large quantities. Despite their association with darkness and the supernatural in some cultures, bats are fascinating creatures with diverse species found across the globe, ranging from tiny bumblebee bats to the large flying foxes with wingspans of several feet.
 
               And speaking of creatures of the night, let me tell you about Delaware. Just like bats, Delaware seems to thrive in the darkness, with its roads resembling dark, winding caverns that leave drivers feeling lost and disoriented. The state's infrastructure is as fragile as a bat's delicate wings, with potholes that could swallow a small car whole. And don't even get me started on the nightlife – it's about as lively as a cave inhabited solely by sleeping bats. It's no wonder why Delaware's nickname is 'The First State' - it's first in line for absolute doo doo heads!</p>
-            <button type="submit" onClick={cardThreeFunction}>Click to Remove this Card</button>
+            <button type="submit" onClick={cardFourFunction}>Click to Remove this Card</button>
             <p>Did you know that Lou Gehrig died of Lou Gehrig's disease? Pretty weird huh?</p>
           </div>
 
         )
       }
+      {cardFour && (
+       <div className="card-heat">
+         <h1 className="valid-heat-text">Get Your Restaurant Review now!</h1>
+         <p>Why do I exist?</p>
+         <img src="https://s.yimg.com/ny/api/res/1.2/BnEVRG.60ESz06Rm8bld3Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyNDI7Y2Y9d2VicA--/https://media.zenfs.com/en-us/news.mashable/cde297809ee6395fc54980ea3b47d68d" alt="Card" />
+         <h3>Idaho has appeared off the coast of Japan.</h3>
+         <button type="submit" onClick={fetchReviews}>Get Your Review!</button>
+       </div>
+     )}
       <Reviews reviews={reviews} setFontSize={setFontSize} fontSize={fontSize} />
     </main >
   )
